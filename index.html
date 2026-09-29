@@ -25,27 +25,27 @@
             100% { background-color: rgb(255, 0, 0); }   /* 赤に戻る */
         }
 
-        /* 超高速回転する巨大メッセージ（見やすさ改良版） */
-        .spinning-text {
-            font-size: 8rem;
-            font-weight: bold;
-            color: #ffffff;
+        /* 文字の視認性を最優先した回転コンテナ */
+        .spinning-container {
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.75); /* 文字の後ろに黒い背景を敷く */
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            display: inline-block;
             white-space: nowrap;
-            user-select: none;
             
-            /* 文字を見やすくするための強力な黒縁取り */
-            text-shadow: 
-                -3px -3px 0 #000,  
-                 3px -3px 0 #000,
-                -3px  3px 0 #000,
-                 3px  3px 0 #000,
-                -5px  0px 0 #000,
-                 5px  0px 0 #000,
-                 0px -5px 0 #000,
-                 0px  5px 0 #000,
-                 0px  0px 20px rgba(0,0,0,0.8); /* 外側のぼかし影 */
+            /* スピードを少しだけ調整（0.2秒から0.5秒へ落としてブレを軽減） */
+            animation: spin 0.5s infinite linear;
+        }
 
-            animation: spin 0.2s infinite linear;
+        /* 巨大メッセージ */
+        .text {
+            font-size: 7rem;
+            font-weight: 900;
+            font-family: 'sans-serif', 'Arial Black', sans-serif;
+            color: #ffffff;
+            user-select: none;
+            margin: 0;
         }
 
         @keyframes spin {
@@ -56,7 +56,9 @@
 </head>
 <body>
 
-    <div class="spinning-text">カマインクラフト</div>
+    <div class="spinning-container">
+        <h1 class="text">縄文</h1>
+    </div>
 
 </body>
 </html>
